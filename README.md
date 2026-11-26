@@ -4,6 +4,8 @@ API web Node.js/Express + PostgreSQL servant de support à une **chaîne DevOps 
 
 📘 **Document principal** : [`docs/GUIDE-PROJET.md`](docs/GUIDE-PROJET.md) — compréhension du projet, architecture, 7 lots et correspondance avec les 15 livrables du PDF.
 
+🎬 **Démonstration** : [`docs/SCENARIO-DEMO.md`](docs/SCENARIO-DEMO.md) — scénario prêt à suivre quand le professeur demande « faites une modification et montrez-moi ».
+
 ## Démarrage rapide
 
 ### Sans Docker (PostgreSQL local)

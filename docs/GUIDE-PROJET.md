@@ -167,7 +167,7 @@ Pousser sur `develop` ou ouvrir une PR : le pipeline se déclenche automatiqueme
 
 ## 7. Démonstration finale (pas-à-pas)
 
-Le scénario complet est détaillé dans `docs/SOUTENANCE.md`. En résumé :
+Le scénario complet est détaillé dans `docs/SOUTENANCE.md`. Pour la demande précise « faites une modification et montrez-moi », suivre `docs/SCENARIO-DEMO.md` (exemple de ligne à changer, commandes et phrases à dire). En résumé :
 
 1. présenter l'application (`/`) et l'organisation des branches ;
 2. modifier une ligne (par exemple le titre de la page) et pousser sur `develop` ;

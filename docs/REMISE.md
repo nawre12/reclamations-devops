@@ -23,4 +23,5 @@
 - `SUPERVISION-INCIDENT.md` — logs, indicateurs et fiche d'incident.
 - `ROLLBACK.md` — procédure de retour arrière et démonstration.
 - `SOUTENANCE.md` — scénario de démonstration et réponses aux questions.
+- `SCENARIO-DEMO.md` — pas-à-pas pour « faites une modification et montrez-moi ».
 - `BILAN.md` — difficultés, validation et améliorations.
