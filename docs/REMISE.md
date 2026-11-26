@@ -15,6 +15,7 @@
 
 ## Documents joints
 
+- `EXPLICATION-SIMPLE.md` — explication en une page, à lire en premier.
 - `GUIDE-PROJET.md` — compréhension du projet, architecture, 7 lots, 15 livrables.
 - `PIPELINE.md` — explication détaillée des jobs et des quality gates.
 - `ENVIRONNEMENTS-SECRETS.md` — matrice des configurations et gestion des secrets.

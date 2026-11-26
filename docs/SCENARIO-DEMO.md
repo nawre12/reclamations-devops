@@ -2,6 +2,8 @@
 
 Ce document répond à une demande précise du professeur : **modifier quelque chose dans le projet et montrer que la chaîne DevOps réagit toute seule**. Il est écrit pour être lu et suivi pendant la soutenance.
 
+👉 Version encore plus courte : [`docs/EXPLICATION-SIMPLE.md`](EXPLICATION-SIMPLE.md). Une première modification est déjà visible dans le sous-titre de `public/index.html` ; le scénario ci-dessous propose une deuxième modification en direct (le bouton d’inscription).
+
 ## 1. Explication en une phrase
 
 > L'application est un petit site de gestion des réclamations. Le projet n'est pas de créer un gros site : c'est de construire une **usine automatique** qui, dès qu'on change une ligne de code, vérifie, teste, construit, publie, déploie et vérifie encore.
