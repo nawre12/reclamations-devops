@@ -19,6 +19,21 @@ describe('API réclamations', () => {
     const res = await request(app).get('/health');
     expect(res.status).toBe(200);
     expect(res.body.status).toBe('ok');
+    expect(res.body.version).toBeDefined();
+  });
+
+  test('GET / sert l interface web', async () => {
+    const res = await request(app).get('/');
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('Gestion des réclamations');
+  });
+
+  test('GET /metrics expose les indicateurs', async () => {
+    const res = await request(app).get('/metrics');
+    expect(res.status).toBe(200);
+    expect(res.body.service).toBe('reclamations');
+    expect(res.body.requests).toBeGreaterThan(0);
+    expect(res.body.uptimeSeconds).toBeGreaterThanOrEqual(0);
   });
 
   test('inscription puis connexion', async () => {

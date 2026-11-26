@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const { pool } = require('./db');
@@ -5,9 +6,12 @@ const { signToken, requireAuth } = require('./auth');
 const { isValidStatus, canTransition } = require('./status');
 const config = require('./config');
 const logger = require('./logger');
+const metrics = require('./metrics');
 
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(metrics.middleware);
 
 // Log de chaque requête (méthode, chemin, code, durée)
 app.use((req, res, next) => {
@@ -32,6 +36,11 @@ app.get('/health', async (req, res) => {
     logger.error('health check failed', { error: err.message });
     res.status(503).json({ status: 'down', version: config.version });
   }
+});
+
+// Indicateurs techniques (disponibilité, erreurs, durée de réponse).
+app.get('/metrics', (req, res) => {
+  res.json(metrics.snapshot());
 });
 
 // --- Authentification ---

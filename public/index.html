@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestion des réclamations</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Gestion des réclamations</h1>
+      <p class="subtitle">
+        Interface web minimale branchée sur l'API du mini-projet DevOps.
+      </p>
+
+      <section>
+        <h2>1. Connexion / inscription</h2>
+        <div class="row">
+          <input id="email" type="email" placeholder="vous@example.com" />
+          <input id="password" type="password" placeholder="mot de passe (6+)" />
+          <button id="register" type="button">S'inscrire</button>
+          <button id="login" type="button">Se connecter</button>
+        </div>
+        <p id="auth-status" class="status">Non connecté.</p>
+      </section>
+
+      <section>
+        <h2>2. Nouvelle réclamation</h2>
+        <div class="row">
+          <input id="title" placeholder="Titre" />
+          <input id="description" placeholder="Description" />
+          <button id="create" type="button">Créer</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Mes réclamations</h2>
+        <button id="refresh" type="button">Actualiser</button>
+        <ul id="list"></ul>
+      </section>
+
+      <pre id="output" class="output"></pre>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
