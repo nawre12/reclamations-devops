@@ -1,0 +1,53 @@
+# Environnement de développement local : image construite depuis le Dockerfile.
+# Copier .env.example vers .env et renseigner JWT_SECRET avant de démarrer.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-reclamations}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - reclamations-net
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-reclamations}',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-reclamations}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET doit être défini dans .env (voir .env.example)}
+      APP_VERSION: ${APP_VERSION:-dev-local}
+    ports:
+      - '3000:3000'
+    networks:
+      - reclamations-net
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "require('http').get('http://127.0.0.1:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  db-data:
+
+networks:
+  reclamations-net:

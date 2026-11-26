@@ -8,9 +8,20 @@
     "test": "jest --runInBand --coverage",
     "test:unit": "jest tests/unit",
     "test:integration": "jest --runInBand tests/integration",
+    "test:integration:coverage": "jest --runInBand tests/integration --coverage --coverageDirectory=coverage",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:smoke": "node scripts/smoke-test.js",
+    "deploy:test": "node scripts/deploy.js",
+    "rollback": "node scripts/rollback.js",
+    "incident:simulate": "node scripts/incident-simulate.js",
+    "security:audit": "npm audit --audit-level=high",
+    "security:secrets": "node scripts/secret-scan.js",
+    "verify": "npm run lint && npm run format:check && npm test"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "license": "MIT",
   "dependencies": {

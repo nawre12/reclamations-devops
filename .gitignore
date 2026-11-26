@@ -1,4 +1,10 @@
 node_modules/
 coverage/
+state/
+artifacts/
 .env
 *.log
+deployment-logs.txt
+rollback-logs.txt
+trivy-report.txt
+image-version.txt
