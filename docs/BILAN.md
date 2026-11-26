@@ -28,6 +28,7 @@ Ce qui est marqué ✅ est démontrable dans le dépôt ou dans GitHub Actions. 
 | Risque de secrets dans le dépôt                                                       | `.gitignore`, fichiers d'exemple factices, script de détection, secret CI optionnel ou valeur générée par exécution |
 | Publication d'image sans infrastructure payante                                       | GHCR + `GITHUB_TOKEN`, image construite et scannée sur le runner                                                    |
 | Docker absent de la machine de préparation                                            | Validation locale avec PostgreSQL et scripts en `dry-run` ; validation réelle déléguée à la CI                      |
+| Alertes Trivy HIGH/CRITICAL sur la première image                                     | `apk upgrade` dans le runtime et suppression de npm/corepack (inutiles pour démarrer l'API) ; nouveau scan en CI    |
 | Choix du périmètre applicatif                                                         | Application volontairement simple mais stable : l'évaluation porte sur la chaîne, pas sur le métier                 |
 
 ## 3. Indicateurs de suivi (section 13 du PDF)
