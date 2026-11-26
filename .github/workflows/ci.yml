@@ -210,6 +210,9 @@ jobs:
     environment:
       name: test
       url: http://localhost:3001
+    permissions:
+      contents: read
+      packages: read
     env:
       IMAGE: ghcr.io/${{ github.repository }}:sha-${{ github.sha }}
       APP_VERSION: ci-${{ github.sha }}

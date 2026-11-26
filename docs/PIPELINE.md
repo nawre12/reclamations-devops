@@ -10,7 +10,7 @@ Fichier source : `.github/workflows/ci.yml`. Le pipeline est écrit **as code**,
 | `pull_request`      | `main`, `develop`                         | Qualité, tests, sécurité, build et image **sans publication**                        |
 | `workflow_dispatch` | manuel                                    | Option `deploy_test` pour forcer le déploiement                                      |
 
-Une `concurrency` annule les exécutions redondantes sur la même référence. Les permissions sont minimales : `contents: read` partout, `packages: write` uniquement pour le job qui publie l'image.
+Une `concurrency` annule les exécutions redondantes sur la même référence. Les permissions sont minimales : `contents: read` partout, `packages: read` pour les jobs qui tirent l'image, `packages: write` uniquement pour le job qui la publie.
 
 ## 2. Graphe des jobs
 
